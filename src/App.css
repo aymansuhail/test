@@ -1,0 +1,105 @@
+.App {
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f8ff;
+  margin: 0;
+  perspective: 1000px;
+  overflow: hidden; /* Prevents any overflow on smaller screens */
+}
+
+.container {
+  text-align: center;
+  transform-style: preserve-3d;
+  position: relative;
+  max-width: 90%; /* Limits width to 90% of the viewport */
+  margin: 0 auto; /* Centers the container horizontally */
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px; /* Adds space above the button */
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.message {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #333;
+  opacity: 0;
+  transform: rotateY(90deg);
+}
+
+.balloon {
+  width: 50px;
+  height: 70px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -150px;
+  opacity: 0.8;
+  animation: float 5s ease-in-out infinite;
+  left: 50%; /* Positions balloons at the center horizontally */
+  transform: translateX(-50%); /* Adjusts position to center correctly */
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  width: 2px;
+  height: 20px;
+  background: #555;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.image {
+  width: 100px;
+  height: auto;
+  margin-top: 20px;
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 95%; /* Adjusts max-width for smaller screens */
+    padding: 10px;
+  }
+
+  .message {
+    font-size: 18px;
+  }
+
+  .balloon {
+    width: 40px;
+    height: 60px;
+  }
+
+  .image {
+    width: 80px;
+  }
+}
